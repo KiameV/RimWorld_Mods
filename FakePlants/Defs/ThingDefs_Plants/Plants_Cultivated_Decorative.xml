@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="PlantBase">
+	<defName>Fake_Rose</defName>
+	<label>Fake Rose</label>
+	<description>A slightly less beautiful rose that lasts forever.</description>
+	<statBases>
+		<MaxHitPoints>85</MaxHitPoints>
+		<Beauty>10</Beauty>
+		<Nutrition>0.00</Nutrition>
+	</statBases>
+	<graphicData>
+      <texPath>Things/Plant/Rose</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <altitudeLayer>Item</altitudeLayer>
+    <selectable>true</selectable>
+	<ingestible>
+      <foodType>Plant</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+	<plant>
+		<dieIfLeafless>false</dieIfLeafless>
+		<harvestTag>Standard</harvestTag>
+		<sowWork>300</sowWork>
+		<sowTags>
+			<li>Decorative</li>
+		</sowTags>
+		<growMinGlow>0.00</growMinGlow>
+		<visualSizeRange>1.05~1.05</visualSizeRange>
+		<purpose>Beauty</purpose>
+	</plant>
+	</ThingDef>
+	
+	<ThingDef ParentName="PlantBase">
+	<defName>Fake_Daylily</defName>
+	<label>Fake Daylily</label>
+	<description>A slightly less beautiful daylily that lasts forever.</description>
+	<statBases>
+		<MaxHitPoints>85</MaxHitPoints>
+		<Beauty>14</Beauty>
+		<Nutrition>0.00</Nutrition>
+	</statBases>
+	<graphicData>
+      <texPath>Things/Plant/Daylily</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <altitudeLayer>Item</altitudeLayer>
+    <selectable>true</selectable>
+	<ingestible>
+      <foodType>Plant</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+	<plant>
+		<dieIfLeafless>false</dieIfLeafless>
+		<harvestTag>Standard</harvestTag>
+		<sowWork>400</sowWork>
+		<sowTags>
+			<li>Decorative</li>
+		</sowTags>
+		<growMinGlow>0.00</growMinGlow>
+		<visualSizeRange>1.05~1.05</visualSizeRange>
+		<purpose>Beauty</purpose>
+	</plant>
+	</ThingDef>
+</Defs>
