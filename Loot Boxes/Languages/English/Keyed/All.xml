@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- Settings -->
+	<LootBoxes_SettingsCategory>Loot Boxes</LootBoxes_SettingsCategory>
+	<LootBoxes_SettingsBonusLootChance>Extra chance for bonus loot</LootBoxes_SettingsBonusLootChance>
+	<LootBoxes_SettingsBonusLootChanceDesc>When enabled, loot boxes have an extra chance to generate bonus loot.</LootBoxes_SettingsBonusLootChanceDesc>
+
+</LanguageData>
