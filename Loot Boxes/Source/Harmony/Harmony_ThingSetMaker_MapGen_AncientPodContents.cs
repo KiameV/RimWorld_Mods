@@ -12,32 +12,31 @@ namespace LootBoxes
 
         public static void Postfix(Pawn p)
         {
-            ThingDef lootToAdd = null;
-            float random = Rand.Value;
-            if (random < 0.10f)
-            {
-                lootToAdd = ThingDefOf.LootBoxTreasure;
-            }
-            else if (random < 0.35f)
-            {
-                lootToAdd = ThingDefOf.LootBoxSilverSmall;
-            }
-            else if (random < 0.40f)
-            {
-                lootToAdd = ThingDefOf.LootBoxGoldSmall;
-            }
-            else if (random < 0.50f)
-            {
-                lootToAdd = ThingDefOf.LootBoxPandora;
-            }
-            // Create and add loot if needed
-            if (lootToAdd != null)
-            {
-                Thing thing = ThingMaker.MakeThing(lootToAdd);
-                thing.stackCount = 1;
-                p.inventory.innerContainer.TryAdd(thing);
-            }
-        }
+			ThingDef val = null;
+			float value = Rand.Value;
+			if (value < 0.1f)
+			{
+				val = ThingDefOf.LootBoxTreasure;
+			}
+			else if (value < 0.35f)
+			{
+				val = ThingDefOf.LootBoxSilverSmall;
+			}
+			else if (value < 0.4f)
+			{
+				val = ThingDefOf.LootBoxGoldSmall;
+			}
+			else if (value < 0.5f)
+			{
+				val = ThingDefOf.LootBoxPandora;
+			}
+			if (val != null)
+			{
+				Thing val2 = ThingMaker.MakeThing(val, (ThingDef)null);
+				val2.stackCount = 1;
+				((ThingOwner)p.inventory.innerContainer).TryAdd(val2, true);
+			}
+		}
 
     }
 

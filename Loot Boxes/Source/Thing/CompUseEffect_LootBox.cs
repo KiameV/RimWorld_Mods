@@ -8,15 +8,9 @@ namespace LootBoxes
 {
 
     public abstract class CompUseEffect_LootBox : CompUseEffect
-	{
+    {
 
-        public virtual string LootTable
-        {
-            get
-            {
-                return string.Empty;
-            }
-        }
+        public virtual string LootTable => string.Empty;
 
         public override void DoEffect(Pawn usedBy)
         {
@@ -35,9 +29,10 @@ namespace LootBoxes
             //for (int i = 0; i < 100; i++)
             //{
             List<Thing> lootList = CreateLoot();
-            foreach (Thing t in lootList)
+            foreach (Thing item in lootList)
             {
-                GenPlace.TryPlaceThing(t, c, map, ThingPlaceMode.Near);
+                //GenPlace.TryPlaceThing(t, c, map, ThingPlaceMode.Near);
+                GenPlace.TryPlaceThing(item, c, map, (ThingPlaceMode.Near), (Action<Thing, int>)null, (Predicate<IntVec3>)null);
             }
             //}
             //map.wealthWatcher.ForceRecount();
@@ -50,9 +45,8 @@ namespace LootBoxes
             string[] arr = GenMagic.Magic(LootTable).Split('|');
             int setsMin = int.Parse(arr[0]);
             int setsMax = int.Parse(arr[1]);
-            int setsCount = Rand.RangeInclusive(setsMin, Rand.RangeInclusive(setsMin, setsMax));
+            int setsCount = GenMagic.GetRealCount(parent, Rand.RangeInclusive(setsMin, Rand.RangeInclusive(setsMin, setsMax)));
             //Log.Message("min: " + setsMin + ", max: " + setsMax + ", final: " + setsCount);
-           
             for (int i = 2, iLen = arr.Length; i < iLen; i++)
             {
                 string str = arr[i];
@@ -71,7 +65,8 @@ namespace LootBoxes
                     string[] inner = arr[j].Split(',');
                     int min = (inner.Length <= 1) ? 1 : int.Parse(inner[1]);
                     int max = (inner.Length <= 2) ? min : int.Parse(inner[2]);
-                    if (inner.Length >= 4) {
+                    if (inner.Length >= 4)
+                    {
                         max = Rand.RangeInclusive(max, int.Parse(inner[3]));
                     }
                     ThingDef def = DefDatabase<ThingDef>.GetNamed(inner[0]);
@@ -109,7 +104,7 @@ namespace LootBoxes
         {
             return " \n" + parent.DescriptionFlavor;
         }
-
+       
     }
-
 }
+

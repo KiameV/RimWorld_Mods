@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefOf\RecordDefOf.cs" />
     <Compile Include="DefOf\ThingDefOf.cs" />
     <Compile Include="Gen\GenMagic.cs" />
     <Compile Include="Harmony\Harmony_ThingSetMaker_MapGen_AncientPodContents.cs" />
@@ -66,7 +67,6 @@
     <Compile Include="Mod\Mod_LootBoxes.cs" />
     <Compile Include="Mod\ModSettings_LootBoxes.cs" />
     <Compile Include="Thing\CompUseEffect_LootBox.cs" />
-    <Compile Include="DefOf\RecordDefOf.cs" />
     <Compile Include="Harmony\HLootBoxes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thing\CompUseEffect_LootBox_SilverSmall.cs" />

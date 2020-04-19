@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Loot Boxes</name>
+	<author>Lanilor - Updated to 1.1 by Ben</author>
+	<supportedVersions>
+		<li>1.1</li>
+	</supportedVersions>
+	<packageId>ben.lootboxesmod</packageId>
+	<description>
+&lt;size=22&gt;Loot Boxes&lt;/size&gt;
+
+Add loot boxes and Pandoras box to the game and gamble for the ultimate treasure and challenges!
+
+Buy loot boxes from traders or build a mysterious red chest and exchange gold and silver for different kinds of loot boxes with different items in them.
+Now with an improved Pandoras box! Opening one spawns incidents and can bless your colony or lead it into disaster.
+
+&lt;b&gt;&lt;size=15&gt;Treasure chest&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;A small loot box which contains valuable items like silver, gold, or thrumbo horns. There may even be a large golden chest in it!
+
+&lt;i&gt;» A golden treasure chest. Fort knox in a box! Become the richest colony in the galaxy with a little bit of luck!&lt;/i&gt;
+
+&lt;b&gt;&lt;size=15&gt;Small common chest&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;A simple small loot box which contains items which help you at the start of the game. Food, material, some valueables, apparel, even weapons and more.
+
+&lt;i&gt;» A small common loot box. Open it and get a change to receive powerful and valuable items!&lt;/i&gt;
+
+&lt;b&gt;&lt;size=15&gt;Large common chest&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;A simple large loot box. This one can contain many different items. With some luck you can get enough material to build a small base, weapons to arm your whole colony or some really rare artefacts.
+
+&lt;i&gt;» A large common loot box. The true test of luck! Open it and you may get something awesome or many useful items. Or both!&lt;/i&gt;
+
+&lt;b&gt;&lt;size=15&gt;Small golden chest&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;The small golden chest maybe small but it has it all! You can get valuables, rare artefacts, archotech stuff, advanced armor or high-tech weapons. There can even be multiple power armor sets in it. Don't ask how they fit in such a small box.
+
+&lt;i&gt;» A small golden loot box. There may be some really nice stuff in here! Get a change to receive some of the best items on the rim!&lt;/i&gt;
+
+&lt;b&gt;&lt;size=15&gt;Large golden chest&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;The large golden chest contains even more stuff than the small one. Naturally. And to top that, there is also more better stuff in it. The true loot box for advanced colonies.
+
+&lt;i&gt;» A large golden loot box. Fulfill all your dreams with this extraordinary loot crate! The highest chance to get the best and most expensive items!&lt;/i&gt;
+
+&lt;b&gt;&lt;size=15&gt;Pandoras box&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;A mysterious box which creates incidents when opening it. Pandora can bless your colony or lead it into disaster. Are you brave enough to open one?
+
+&lt;i&gt;» Pandoras box. What may be in here?&lt;/i&gt;
+
+&lt;size=18&gt;Notes&lt;/size&gt;
+
+Can be added to existing saves. To remove it, be sure to remove all objects from this mod from your world first. (Like the loot boxes itself, of course you can keep the loot you got out of them.)
+
+Art made by Vagabond.
+
+&lt;b&gt;&lt;size=15&gt;Another note (to be safe)&lt;/size&gt;&lt;/b&gt;&lt;size=4&gt;
+
+&lt;/size&gt;This is a mod for fun. There are no microtransactions. You can't buy any loot boxes from this mod with real money.
+	</description>
+	<modDependencies>
+        <li>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+</ModMetaData>
