@@ -2,9 +2,25 @@
 using System.Reflection;
 using RimWorld;
 using Verse;
+using UnityEngine;
 
 namespace NoRandomConstructionQuality
 {
+    class Nrcq_mod : Mod
+    {
+        public static Nrcq_settings settings;
+
+        public Nrcq_mod(ModContentPack content) : base(content)
+        {
+            Nrcq_mod.settings = GetSettings<Nrcq_settings>();
+            Log.Message($"NoRandomConstructionQuality :: Initialized");
+        }
+
+        public override string SettingsCategory() => "No Random Construction Quality";
+
+        public override void DoSettingsWindowContents(Rect canvas) { settings.DoWindowContents(canvas); }
+    }
+
     [StaticConstructorOnStartup]
     public static class Initializer
     {

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AutoCookerBase" Abstract="True">
+	<defName>AutoCooker</defName>
+	<label>Auto Cooker</label>
+	<designationCategory>Production</designationCategory>
+	<thingClass>Automation.Things.Building_AutoCooker</thingClass>
+	<statBases>
+		<WorkToBuild>25000</WorkToBuild>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Flammability>1.0</Flammability>
+		<Mass>20</Mass>
+    </statBases>
+	<graphicData>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawSize>(3,3)</drawSize>
+		<texPath>Automation/AutoCooker</texPath>
+	</graphicData>
+	<rotatable>false</rotatable>
+	<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	<neverMultiSelect>true</neverMultiSelect>
+   	<altitudeLayer>Building</altitudeLayer>
+	<minifiedDef>MinifiedThing</minifiedDef>
+	<description>An electric auto-cooker.</description>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+	<pathCost>70</pathCost>
+	<canOverlapZones>false</canOverlapZones>
+	<castEdgeShadows>true</castEdgeShadows>
+	<size>(3,3)</size>
+	<researchPrerequisites>
+	<li>Automation</li>
+	</researchPrerequisites>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	<tickerType>Normal</tickerType>
+	<comps>
+	<li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>600</basePowerConsumption>
+	</li>
+	<li Class="CompProperties_Flickable"/>
+    <li Class="CompProperties_Breakdownable"/>
+    <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>5</heatPerSecond>
+    </li>
+	</comps>
+	<building>
+		<isMealSource>true</isMealSource>
+	</building>
+	<recipes>
+      <li>CookMealSimple</li>
+      <li>CookMealFine</li>
+      <li>CookMealLavish</li>
+      <li>CookMealSurvival</li>
+      <li>CookMealSimpleBulk</li>
+      <li>CookMealFineBulk</li>
+      <li>CookMealLavishBulk</li>
+      <li>CookMealSurvivalBulk</li>
+      <li>Make_Pemmican</li>
+      <li>Make_PemmicanBulk</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+	<hasInteractionCell>False</hasInteractionCell>
+	
+</ThingDef>
+</Defs>
+	
+	
+	

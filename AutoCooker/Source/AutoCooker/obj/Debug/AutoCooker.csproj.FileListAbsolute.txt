@@ -1,0 +1,3 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AutoCooker\Assemblies\AutoCooker.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AutoCooker\Source\AutoCooker\obj\Debug\AutoCooker.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AutoCooker\Source\AutoCooker\obj\Debug\AutoCooker.dll

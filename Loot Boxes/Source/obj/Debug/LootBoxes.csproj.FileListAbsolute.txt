@@ -1,6 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Loot Boxes\Assemblies\LootBoxes.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Loot Boxes\Source\obj\Debug\LootBoxes.csprojAssemblyReference.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Loot Boxes\Source\obj\Debug\LootBoxes.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Loot Boxes\Assemblies\LootBoxes.pdb
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Loot Boxes\Source\obj\Debug\LootBoxes.pdb
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Loot Boxes\Source\obj\Debug\LootBoxes.csproj.CoreCompileInputs.cache
