@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<QualityOptions>No Random Construction Quality Options</QualityOptions>
-	<QualityAwful>Awful:</QualityAwful>
-	<QualityPoor>Poor:</QualityPoor>
-	<QualityNormal>Normal:</QualityNormal>
-	<QualityGood>Good:</QualityGood>
-	<QualityExcellent>Excellent:</QualityExcellent>
-	<QualityMasterwork>Masterwork:</QualityMasterwork>
-	<QualityLegendary>Legendary:</QualityLegendary>
-	<QualityDefault>Use mod default (This will override the sliders with the mod's default)</QualityDefault>
-	<QualityCustom>Use slider qualities</QualityCustom>
+	<CraftingNotifications>Crafting Notifications</CraftingNotifications>
+	<Notifs>Enable/Disable Crafting Notifications</Notifs>
 </LanguageData>
