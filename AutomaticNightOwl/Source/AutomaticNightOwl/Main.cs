@@ -53,10 +53,11 @@ namespace AutomaticNightOwl
 
     class WorldComp : WorldComponent
     {
-        // Using a HashMap for quick lookup
+        // Using a HashSet for quick lookup
         public static HashSet<Pawn> PawnsWithNightOwl = new HashSet<Pawn>();
         // I've found it easier to have a null list for use when exposing data
-        // This allows the above hashset to be static and easily usable by other code
+        // This shouldn't be needed but mods will remove Pawns from the game completely (RuntimeGC for instance)
+        //   and HashSet will fail if more than one null value is added.
         private List<Pawn> usedForExposingData = null;
 
         public WorldComp(World w) : base(w)
