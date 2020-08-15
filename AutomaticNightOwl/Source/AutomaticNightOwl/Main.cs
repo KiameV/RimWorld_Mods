@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
-using System;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Reflection;
 using Verse;
@@ -10,47 +10,93 @@ namespace AutomaticNightOwl
     [StaticConstructorOnStartup]
     public static class AutomaticNightOwl
     {
-        private static readonly Queue<Pawn> IsPawn = new Queue<Pawn>();
         private static void AutoNightOwl(Pawn pawn)
         {
-                if ((pawn.story.traits.HasTrait(TraitDefOf.NightOwl) == true) && pawn.timetable != null)
+            if (pawn?.story?.traits?.HasTrait(TraitDefOf.NightOwl) == true && 
+                pawn.timetable != null && 
+                !WorldComp.PawnsWithNightOwl.Contains(pawn))
+            {
+                pawn.timetable.times = new List<TimeAssignmentDef>(GenDate.HoursPerDay);
+                for (int i = 0; i < GenDate.HoursPerDay; i++)
                 {
-                    pawn.timetable.times = new List<TimeAssignmentDef>(GenDate.HoursPerDay);
-                    for (int i = 0; i < GenDate.HoursPerDay; i++)
-                    {
                     TimeAssignmentDef setNightOwlHours = i >= 11 && i <= 18 ? TimeAssignmentDefOf.Sleep : TimeAssignmentDefOf.Anything;
                     pawn.timetable.times.Add(setNightOwlHours);
                 }
-                }
-        }
-        [HarmonyPatch(typeof(Pawn_TimetableTracker), MethodType.Constructor, new Type[] { typeof(Pawn) })]
-        public static class Patch_Pawn_TimetableTracker
-        {
-            public static void Postfix(Pawn pawn)
-            {
-                if (Scribe.mode != LoadSaveMode.LoadingVars)
-                { IsPawn.Enqueue(pawn); }
+                WorldComp.PawnsWithNightOwl.Add(pawn);
             }
         }
-        [HarmonyPatch(typeof(GameComponentUtility), nameof(GameComponentUtility.GameComponentUpdate))]
-        //[HarmonyPatch(typeof(GameComponentUtility)]
-        //[HarmonyPatch(nameof(GameComponentUtility.GameComponentUpdate))]
-        public static class Patch_GameComponentUtility
+
+        [HarmonyPatch(typeof(Thing), nameof(Thing.SpawnSetup))]
+        public static class Patch_Thing_SpawnSetup
         {
-            public static void Postfix()
-            { if (IsPawn.Count > 0) { AutoNightOwl(IsPawn.Dequeue()); } }
+            public static void Postfix(Thing __instance)
+            {
+                if (__instance is Pawn p && p.Faction?.IsPlayer == true && p.def?.race?.Humanlike == true)
+                {
+                    AutoNightOwl(p);
+                }
+            }
         }
+
         static AutomaticNightOwl()
         {
             Harmony harmony = new Harmony("AutomaticNightOwl_Ben");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
+
         [DefOf]
         public static class TraitDefOf
         {
-
             public static TraitDef NightOwl;
+        }
+    }
 
+    class WorldComp : WorldComponent
+    {
+        // Using a HashMap for quick lookup
+        public static HashSet<Pawn> PawnsWithNightOwl = new HashSet<Pawn>();
+        // I've found it easier to have a null list for use when exposing data
+        // This allows the above hashset to be static and easily usable by other code
+        private List<Pawn> usedForExposingData = null;
+
+        public WorldComp(World w) : base(w)
+        {
+            // Make sure the static HashSet is cleared whenever a game is created or loaded.
+            PawnsWithNightOwl.Clear();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                // When saving, populate the list
+                usedForExposingData = new List<Pawn>(PawnsWithNightOwl);
+            }
+
+            Scribe_Collections.Look(ref usedForExposingData, "pawnsWithNightOwl", LookMode.Reference);
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                // When loading, clear the HashSet then populate it with the loaded data
+                PawnsWithNightOwl.Clear();
+                foreach (var v in usedForExposingData)
+                {
+                    // Remove any null records
+                    if (v != null)
+                    {
+                        PawnsWithNightOwl.Add(v);
+                    }
+                }
+            }
+
+            if (Scribe.mode == LoadSaveMode.Saving || 
+                Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                // Add hints to the garbage collector that this memory can be collected
+                usedForExposingData?.Clear();
+                usedForExposingData = null;
+            }
         }
     }
 }
